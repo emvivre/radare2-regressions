@@ -966,6 +966,28 @@ EXPECT='0x00001348
 '
 run_test
 
+NAME='div cl x86-32'
+
+FILE=-
+ARGS=
+CMDS='
+e io.va=true
+e esil.debug=true
+e asm.arch=x86
+e asm.bits=32
+aei
+aeim
+aer esp=0x00108000
+.aer*
+"wx b80500fecab202f6f2"
+3aes
+.aer*
+aer?eax
+'
+EXPECT='0xcafe0102
+'
+run_test
+
 NAME='pushal(pushad in intel documentation) x86_32'
 
 FILE=-
